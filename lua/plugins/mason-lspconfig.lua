@@ -1,3 +1,10 @@
+local on_attach_ruff = function(client, bufnr)
+  if client.name == "ruff_lsp" then
+    -- Disable hover in favor of Pyright
+    client.server_capabilities.hoverProvider = false
+  end
+end
+
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
@@ -64,6 +71,36 @@ return {
         nvim_lsp["pyright"].setup {
           on_attach = on_attach,
           capabilities = capabilities,
+          settings = {
+            pyright = {
+              -- Using Ruff's import organizer
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                ignore = { "*" },
+              },
+            },
+          },
+        }
+      end,
+      ["ruff"] = function()
+        nvim_lsp["ruff"].setup {
+          on_attach = on_attach_ruff,
+          capabilities = capabilities,
+          filetypes = { "python" },
+          init_options = {
+            settings = {
+              -- Any extra CLI arguments for `ruff` go here.
+              lint = {
+                args = {
+                  "--select=E,F,B",
+                  "--line-length=120",
+                },
+              },
+            },
+          },
         }
       end,
     }
