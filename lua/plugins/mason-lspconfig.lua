@@ -72,32 +72,10 @@ return {
           on_attach = on_attach,
           capabilities = capabilities,
           settings = {
-            pyright = {
-              -- Using Ruff's import organizer
-              disableOrganizeImports = true,
-            },
             python = {
               analysis = {
                 -- Ignore all files for analysis to exclusively use Ruff for linting
                 ignore = { "*" },
-              },
-            },
-          },
-        }
-      end,
-      ["ruff"] = function()
-        nvim_lsp["ruff"].setup {
-          on_attach = on_attach_ruff,
-          capabilities = capabilities,
-          filetypes = { "python" },
-          init_options = {
-            settings = {
-              -- Any extra CLI arguments for `ruff` go here.
-              lint = {
-                args = {
-                  "--select=E,F,B",
-                  "--line-length=120",
-                },
               },
             },
           },

@@ -16,7 +16,6 @@ return {
         "jsonls",
         "pyright",
         "tailwindcss",
-        "ruff",
       },
     }
 

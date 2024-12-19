@@ -16,7 +16,7 @@ return {
         yaml = { "prettier" },
         markdown = { "prettier" },
         lua = { "stylua" },
-        python = { "ruff_format", "ruff_organize_imports" },
+        python = { "ruff_format" },
       },
       format_on_save = {
         lsp_fallback = true,
