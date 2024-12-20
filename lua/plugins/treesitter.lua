@@ -18,6 +18,7 @@ return {
         "rst",
         "bash",
         "go",
+        "templ",
       },
       sync_install = false,
       highlight = { enable = true },

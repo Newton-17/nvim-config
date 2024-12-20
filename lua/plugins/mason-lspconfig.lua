@@ -81,6 +81,18 @@ return {
           },
         }
       end,
+      ["gopls"] = function()
+        nvim_lsp["gopls"].setup {
+          on_attach = on_attach,
+          capabilities = capabilities,
+        }
+      end,
+      ["templ"] = function()
+        nvim_lsp["templ"].setup {
+          on_attach = on_attach,
+          capabilities = capabilities,
+        }
+      end,
     }
   end,
 }

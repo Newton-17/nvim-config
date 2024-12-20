@@ -16,6 +16,8 @@ return {
         "jsonls",
         "pyright",
         "tailwindcss",
+        "gopls",
+        "templ",
       },
     }
 
@@ -24,6 +26,8 @@ return {
         "prettier",
         "stylua", -- lua formatter
         "eslint_d",
+        "gopls",
+        "templ",
       },
     }
   end,
