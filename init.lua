@@ -41,6 +41,14 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" 
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 vim.api.nvim_set_keymap("n", "<leader>ft", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
+-- Jump Too
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- Jump to definition
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- Jump to declaration
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- Jump to implementation
+vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- List references
+vim.keymap.set("n", "<leader>td", vim.lsp.buf.type_definition, opts) -- Jump to type definition
+
 -- Spacing Stuff (Tab = 4 spaces)
 vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
